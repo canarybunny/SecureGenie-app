@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free Online Password Generator: Generate secure, customizable passwords in seconds." />
+  <meta property="og:title" content="Free Online Password Generator" />
+  <meta property="og:description" content="Generate strong, random passwords instantly for free." />
+  <meta property="og:type" content="website" />
+  <title>Free Online Password Generator</title>
+  <!-- Tailwind via CDN for rapid styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AdSense placeholder -->
+  <!-- <script data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+</head>
+<body class="bg-gray-50 flex flex-col items-center p-6">
+  <!-- Top Ad Banner -->
+  <div class="w-full max-w-xl mb-4 text-center">
+    <!-- <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="auto"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="YYYYYYYYYY"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+  </div>
+
+  <h1 class="text-3xl font-bold mb-6">Free Online Password Generator</h1>
+
+  <div class="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
+    <label class="block mb-2 font-semibold">Password Length: <span id="lengthVal" class="font-bold">16</span></label>
+    <input id="length" type="range" min="6" max="64" value="16" class="w-full mb-4">
+
+    <button id="generate" class="w-full py-2 rounded-xl font-semibold hover:bg-gray-200">Generate Password</button>
+
+    <textarea id="output" readonly class="w-full mt-4 p-3 bg-gray-100 rounded-lg text-lg"></textarea>
+  </div>
+
+  <!-- Affiliate Banner -->
+  <div class="w-full max-w-xl mt-6 text-center">
+    <!-- <a href="AFFILIATE_LINK_HERE" target="_blank">
+      <img src="AFFILIATE_BANNER_IMAGE_URL" alt="Try 1Password Free" class="mx-auto" />
+    </a> -->
+  </div>
+
+  <script>
+    const lengthSlider = document.getElementById('length');
+    const lengthVal = document.getElementById('lengthVal');
+    const outputArea = document.getElementById('output');
+    const generateBtn = document.getElementById('generate');
+
+    lengthSlider.addEventListener('input', () => lengthVal.textContent = lengthSlider.value);
+
+    function generatePassword(len) {
+      const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+      let pass = '';
+      for (let i = 0; i < len; i++) {
+        const rand = Math.floor(Math.random() * charset.length);
+        pass += charset[rand];
+      }
+      return pass;
+    }
+
+    generateBtn.addEventListener('click', () => {
+      const pwd = generatePassword(parseInt(lengthSlider.value));
+      outputArea.value = pwd;
+    });
+  </script>
+</body>
+</html>
