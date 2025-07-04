@@ -1,68 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Free Online Password Generator: Generate secure, customizable passwords in seconds." />
-  <meta property="og:title" content="Free Online Password Generator" />
-  <meta property="og:description" content="Generate strong, random passwords instantly for free." />
-  <meta property="og:type" content="website" />
-  <title>Free Online Password Generator</title>
-  <!-- Tailwind via CDN for rapid styling -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SecureGenie: Professional online password generator with customization, tips, and resources.">
+  <title>SecureGenie - Password Generator</title>
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AdSense placeholder -->
-  <!-- <script data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <!-- Smooth Scroll -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          e.preventDefault();
+          document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
 </head>
-<body class="bg-gray-50 flex flex-col items-center p-6">
-  <!-- Top Ad Banner -->
-  <div class="w-full max-w-xl mb-4 text-center">
-    <!-- <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="auto"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="YYYYYYYYYY"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-  </div>
+<body class="font-sans leading-relaxed text-gray-800">
 
-  <h1 class="text-3xl font-bold mb-6">Free Online Password Generator</h1>
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow-sm z-10">
+    <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold">SecureGenie</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="#home" class="hover:underline">Home</a></li>
+          <li><a href="#features" class="hover:underline">Features</a></li>
+          <li><a href="#about" class="hover:underline">About</a></li>
+          <li><a href="#footer" class="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <div class="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
-    <label class="block mb-2 font-semibold">Password Length: <span id="lengthVal" class="font-bold">16</span></label>
-    <input id="length" type="range" min="6" max="64" value="16" class="w-full mb-4">
+  <!-- Hero / Tool Section -->
+  <section id="home" class="pt-24 pb-12 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-extrabold mb-4">Generate Secure Passwords in Seconds</h2>
+      <p class="mb-8">Instant, customizable, and free. Protect your accounts with unbreakable passwords.</p>
+      <div class="bg-white p-6 rounded-2xl shadow-lg inline-block text-gray-800">
+        <label class="block mb-2 font-semibold">Password Length: <span id="lengthVal">16</span></label>
+        <input id="length" type="range" min="6" max="64" value="16" class="w-full mb-4">
+        <button id="generate" class="w-full py-2 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700">Generate</button>
+        <textarea id="output" readonly class="w-full mt-4 p-3 bg-gray-100 rounded-lg text-lg"></textarea>
+      </div>
+    </div>
+  </section>
 
-    <button id="generate" class="w-full py-2 rounded-xl font-semibold hover:bg-gray-200">Generate Password</button>
+  <!-- Features -->
+  <section id="features" class="py-12">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <h3 class="text-xl font-bold mb-2">Custom Length</h3>
+        <p>Choose between 6–64 characters for ultimate flexibility.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-xl font-bold mb-2">Complex Characters</h3>
+        <p>Includes letters, numbers, and symbols to maximize entropy.</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-xl font-bold mb-2">Copy to Clipboard</h3>
+        <p>One-click copy so you can paste instantly and securely.</p>
+      </div>
+    </div>
+  </section>
 
-    <textarea id="output" readonly class="w-full mt-4 p-3 bg-gray-100 rounded-lg text-lg"></textarea>
-  </div>
+  <!-- About -->
+  <section id="about" class="py-12 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4 text-center">About SecureGenie</h2>
+      <p class="text-center">SecureGenie is your go-to tool for generating strong, random passwords. Built with privacy and simplicity in mind. No tracking, no signup. Just pure security at your fingertips.</p>
+    </div>
+  </section>
 
-  <!-- Affiliate Banner -->
-  <div class="w-full max-w-xl mt-6 text-center">
-    <!-- <a href="AFFILIATE_LINK_HERE" target="_blank">
-      <img src="AFFILIATE_BANNER_IMAGE_URL" alt="Try 1Password Free" class="mx-auto" />
-    </a> -->
-  </div>
+  <!-- Footer -->
+  <footer id="footer" class="bg-gray-800 text-gray-300 py-6">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <p>© 2025 SecureGenie. All rights reserved.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#home" class="hover:underline">Privacy Policy</a>
+        <a href="#home" class="hover:underline">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
 
+  <!-- Generator Script -->
   <script>
     const lengthSlider = document.getElementById('length');
     const lengthVal = document.getElementById('lengthVal');
     const outputArea = document.getElementById('output');
-    const generateBtn = document.getElementById('generate');
-
     lengthSlider.addEventListener('input', () => lengthVal.textContent = lengthSlider.value);
-
-    function generatePassword(len) {
+    document.getElementById('generate').addEventListener('click', () => {
       const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
       let pass = '';
-      for (let i = 0; i < len; i++) {
-        const rand = Math.floor(Math.random() * charset.length);
-        pass += charset[rand];
+      for (let i = 0, len = parseInt(lengthSlider.value); i < len; i++) {
+        pass += charset[Math.floor(Math.random() * charset.length)];
       }
-      return pass;
-    }
-
-    generateBtn.addEventListener('click', () => {
-      const pwd = generatePassword(parseInt(lengthSlider.value));
-      outputArea.value = pwd;
+      outputArea.value = pass;
     });
   </script>
 </body>
